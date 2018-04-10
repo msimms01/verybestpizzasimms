@@ -1,4 +1,6 @@
 ActiveAdmin.register BucketList do
+
+ permit_params :bucketlist, :users_id, :dishes_id, :selectedvenue_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
