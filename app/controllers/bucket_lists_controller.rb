@@ -10,7 +10,8 @@ class BucketListsController < ApplicationController
   end
 
   def index
-    @bucket_lists = BucketList.page(params[:page]).per(10)
+    @q = BucketList.ransack(params[:q])
+    @bucket_lists = @q.result(:distinct => true).includes(:users, :dishes, :selectedvenue).page(params[:page]).per(10)
 
     render("bucket_lists/index.html.erb")
   end
