@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Visitedvenue resource:
+  # CREATE
+  get "/visitedvenues/new", :controller => "visitedvenues", :action => "new"
+  post "/create_visitedvenue", :controller => "visitedvenues", :action => "create"
+
+  # READ
+  get "/visitedvenues", :controller => "visitedvenues", :action => "index"
+  get "/visitedvenues/:id", :controller => "visitedvenues", :action => "show"
+
+  # UPDATE
+  get "/visitedvenues/:id/edit", :controller => "visitedvenues", :action => "edit"
+  post "/update_visitedvenue/:id", :controller => "visitedvenues", :action => "update"
+
+  # DELETE
+  get "/delete_visitedvenue/:id", :controller => "visitedvenues", :action => "destroy"
+  #------------------------------
+
   # Routes for the Venue resource:
   # CREATE
   get "/venues/new", :controller => "venues", :action => "new"
