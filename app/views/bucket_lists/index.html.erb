@@ -24,8 +24,11 @@
         <td><%= bucket_list.selectedvenue.restaurant %></td>
         <td>
           <a href="/bucket_lists/<%= bucket_list.id %>" class="btn btn-primary">Show</a>
-          <a href="/bucket_lists/<%= bucket_list.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_bucket_list/<%= bucket_list.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == bucket_list.users %>
+            <a href="/bucket_lists/<%= bucket_list.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_bucket_list/<%= bucket_list.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

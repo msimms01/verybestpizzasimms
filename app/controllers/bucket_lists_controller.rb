@@ -1,4 +1,14 @@
 class BucketListsController < ApplicationController
+  before_action :current_user_must_be_bucket_list_users, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_bucket_list_users
+    bucket_list = BucketList.find(params[:id])
+
+    unless current_user == bucket_list.users
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @bucket_lists = BucketList.all
 
