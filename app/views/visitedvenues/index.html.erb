@@ -16,7 +16,7 @@
 
       <% @visitedvenues.each do |visitedvenue| %>
       <tr>
-        <td><%= visitedvenue.user_id %></td>
+        <td><%= visitedvenue.user.email %></td>
         <td><%= visitedvenue.venue_id %></td>
         <td>
           <a href="/visitedvenues/<%= visitedvenue.id %>" class="btn btn-primary">Show</a>
