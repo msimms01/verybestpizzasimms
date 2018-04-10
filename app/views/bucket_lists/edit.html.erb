@@ -42,7 +42,7 @@
           Dishes
         </label>
 
-        <input type="text" id="dishes_id" name="dishes_id" placeholder="Dishes" class="form-control" value="<%= @bucket_list.dishes_id %>">
+        <%= select_tag(:dishes_id, options_from_collection_for_select(Dish.all, :id, :dishname, @bucket_list.dishes_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for selectedvenue_id -->
