@@ -54,6 +54,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_bucket_list" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for bucketlist -->
+      <div class="form-group">
+        <label for="bucketlist" class="control-label">
+          Bucketlist
+        </label>
+
+        <input type="text" id="bucketlist" name="bucketlist" placeholder="Bucketlist" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for users_id -->
+      <input type="hidden" name="users_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for dishes_id -->
+      <div class="form-group">
+        <label for="dishes_id" class="control-label">
+          Dishes
+        </label>
+
+        <%= select_tag(:dishes_id, options_from_collection_for_select(Dish.all, :id, :dishname), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for selectedvenue_id -->
+      <div class="form-group">
+        <label for="selectedvenue_id" class="control-label">
+          Selectedvenue
+        </label>
+
+        <%= select_tag(:selectedvenue_id, options_from_collection_for_select(Venue.all, :id, :restaurant), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Bucket List
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +126,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_dish_venue" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for dish_id -->
+      <input type="hidden" name="dish_id" value="<%= @dish.id %>">
+
+      <!-- Label and input for venue_id -->
+      <div class="form-group">
+        <label for="venue_id" class="control-label">
+          Venue
+        </label>
+
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :restaurant), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Dish Venue
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

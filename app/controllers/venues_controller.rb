@@ -6,6 +6,9 @@ class VenuesController < ApplicationController
   end
 
   def show
+    @bucket_list = BucketList.new
+    @dish_venue = DishVenue.new
+    @visitedvenue = Visitedvenue.new
     @venue = Venue.find(params[:id])
 
     render("venues/show.html.erb")
