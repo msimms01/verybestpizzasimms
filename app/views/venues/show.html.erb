@@ -29,3 +29,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Venue has many visitedvenues -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Visitedvenues
+      </li>
+
+      <% @venue.visitedvenues.each do |visitedvenue| %>
+        <li class="list-group-item">
+          <a href="/visitedvenues/<%= visitedvenue.id %>">
+            <%= visitedvenue.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/visitedvenues/<%= visitedvenue.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/visitedvenues/<%= visitedvenue.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_visitedvenue/<%= visitedvenue.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Venue has many dish_venues -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Dish Venues
+      </li>
+
+      <% @venue.dish_venues.each do |dish_venue| %>
+        <li class="list-group-item">
+          <a href="/dish_venues/<%= dish_venue.id %>">
+            <%= dish_venue.dish_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/dish_venues/<%= dish_venue.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/dish_venues/<%= dish_venue.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_dish_venue/<%= dish_venue.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Venue has many bucket_lists -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bucket Lists
+      </li>
+
+      <% @venue.bucket_lists.each do |bucket_list| %>
+        <li class="list-group-item">
+          <a href="/bucket_lists/<%= bucket_list.id %>">
+            <%= bucket_list.bucketlist %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bucket_lists/<%= bucket_list.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bucket_lists/<%= bucket_list.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bucket_list/<%= bucket_list.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
