@@ -51,7 +51,7 @@
           Selectedvenue
         </label>
 
-        <input type="text" id="selectedvenue_id" name="selectedvenue_id" placeholder="Selectedvenue" class="form-control" value="<%= @bucket_list.selectedvenue_id %>">
+        <%= select_tag(:selectedvenue_id, options_from_collection_for_select(Venue.all, :id, :restaurant, @bucket_list.selectedvenue_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
