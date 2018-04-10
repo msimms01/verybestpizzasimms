@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :visitedvenues,
+             :dependent => :destroy
+
   has_many   :bucket_lists,
              :foreign_key => "users_id",
              :dependent => :destroy
