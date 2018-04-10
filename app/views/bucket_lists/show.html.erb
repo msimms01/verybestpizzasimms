@@ -9,13 +9,31 @@
       <dd><%= @bucket_list.bucketlist %></dd>
 
       <dt>Users</dt>
-      <dd><%= @bucket_list.users_id %></dd>
+      <dd>
+        <% if @bucket_list.users.present? %>
+          <a href="/users/<%= @bucket_list.users_id %>">
+            <%= @bucket_list.users.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Dishes</dt>
-      <dd><%= @bucket_list.dishes_id %></dd>
+      <dd>
+        <% if @bucket_list.dishes.present? %>
+          <a href="/dishes/<%= @bucket_list.dishes_id %>">
+            <%= @bucket_list.dishes.dishname %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Selectedvenue</dt>
-      <dd><%= @bucket_list.selectedvenue_id %></dd>
+      <dd>
+        <% if @bucket_list.selectedvenue.present? %>
+          <a href="/venues/<%= @bucket_list.selectedvenue_id %>">
+            <%= @bucket_list.selectedvenue.restaurant %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

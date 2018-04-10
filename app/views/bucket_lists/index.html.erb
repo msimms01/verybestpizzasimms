@@ -19,9 +19,27 @@
       <% @bucket_lists.each do |bucket_list| %>
       <tr>
         <td><%= bucket_list.bucketlist %></td>
-        <td><%= bucket_list.users.email %></td>
-        <td><%= bucket_list.dishes.dishname %></td>
-        <td><%= bucket_list.selectedvenue.restaurant %></td>
+        <td>
+          <% if bucket_list.users.present? %>
+            <a href="/users/<%= bucket_list.users.id %>">
+              <%= bucket_list.users.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bucket_list.dishes.present? %>
+            <a href="/dishes/<%= bucket_list.dishes.id %>">
+              <%= bucket_list.dishes.dishname %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bucket_list.selectedvenue.present? %>
+            <a href="/venues/<%= bucket_list.selectedvenue.id %>">
+              <%= bucket_list.selectedvenue.restaurant %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/bucket_lists/<%= bucket_list.id %>" class="btn btn-primary">Show</a>
           
