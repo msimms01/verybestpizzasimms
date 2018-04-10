@@ -27,14 +27,8 @@
         <input type="text" id="bucketlist" name="bucketlist" placeholder="Bucketlist" class="form-control" value="<%= @bucket_list.bucketlist %>">
       </div>
 
-      <!-- Label and input for users_id -->
-      <div class="form-group">
-        <label for="users_id" class="control-label">
-          Users
-        </label>
-
-        <%= select_tag(:users_id, options_from_collection_for_select(User.all, :id, :email, @bucket_list.users_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for dishes_id -->
       <div class="form-group">
