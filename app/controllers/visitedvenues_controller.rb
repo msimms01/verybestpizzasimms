@@ -1,6 +1,6 @@
 class VisitedvenuesController < ApplicationController
   def index
-    @visitedvenues = Visitedvenue.all
+    @visitedvenues = Visitedvenue.page(params[:page]).per(10)
 
     render("visitedvenues/index.html.erb")
   end

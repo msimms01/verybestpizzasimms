@@ -1,6 +1,6 @@
 class DishVenuesController < ApplicationController
   def index
-    @dish_venues = DishVenue.all
+    @dish_venues = DishVenue.page(params[:page]).per(10)
 
     render("dish_venues/index.html.erb")
   end
